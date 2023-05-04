@@ -1,4 +1,20 @@
-<app-main-navigation> </app-main-navigation>
+<app-main-navigation>
+  <mat-form-field color="primary">
+    <mat-label>User name</mat-label>
+    <input matInput placeholder="Enter username" [(ngModel)]="username" />
+  </mat-form-field>
+  <p>
+    {{ username }}
+  </p>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="onResetUserName()"
+    [disabled]="username === ''"
+  >
+    Reset username
+  </button>
+</app-main-navigation>
 <div class="alerts">
   <app-success-alert>Successful execution</app-success-alert>
   <app-warning-alert>This is a warning</app-warning-alert>
