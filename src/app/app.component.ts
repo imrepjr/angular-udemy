@@ -13,4 +13,12 @@ export class AppComponent {
     this.isVisible = !this.isVisible;
     this.clickLogs.push(Date.now());
   }
+
+  getBackground(index: number) {
+    return index >= 4 ? 'blue' : undefined;
+  }
+
+  getClass(index: number) {
+    return { pink: index >= 4 };
+  }
 }

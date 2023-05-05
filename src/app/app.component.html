@@ -5,13 +5,17 @@
   </button>
   <!-- 2. Add a paragraph with any content of your choice -->
   <!-- 3. Toggle the displaying of this paragraph with the button from first step -->
-  <p *ngIf="isVisible">These are the hidden details</p>
+  <p *ngIf="isVisible; else nothing">These are the hidden details</p>
+  <ng-template #nothing>
+    <p>Nothing to see here</p>
+  </ng-template>
   <!-- 4. log all button clicks in an array and output that array below the secret paragraph -->
+  <p>Logs:</p>
   <ul>
     <li
       *ngFor="let log of clickLogs; let i = index"
-      [ngStyle]="{ background: i >= 4 ? 'blue' : 'transparent' }"
-      [ngClass]="{ pink: i >= 4 }"
+      [ngStyle]="{ background: getBackground(i) }"
+      [ngClass]="getClass(i)"
     >
       {{ i + 1 }}. {{ log }}
     </li>
