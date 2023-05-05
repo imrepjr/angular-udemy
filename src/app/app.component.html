@@ -1,19 +1,26 @@
 <app-main-navigation>
-  <mat-form-field color="primary">
-    <mat-label>User name</mat-label>
-    <input matInput placeholder="Enter username" [(ngModel)]="username" />
-  </mat-form-field>
-  <p>
-    {{ username }}
-  </p>
-  <button
-    mat-flat-button
-    color="primary"
-    (click)="onResetUserName()"
-    [disabled]="username === ''"
-  >
-    Reset username
+  <!-- 1. Add a button that says "Display Details" -->
+  <button mat-flat-button color="primary" (click)="toggleVisibility()">
+    Display Details
   </button>
+  <!-- 2. Add a paragraph with any content of your choice -->
+  <!-- 3. Toggle the displaying of this paragraph with the button from first step -->
+  <p *ngIf="isVisible; else nothing">These are the hidden details</p>
+  <ng-template #nothing>
+    <p>Nothing to see here</p>
+  </ng-template>
+  <!-- 4. log all button clicks in an array and output that array below the secret paragraph -->
+  <p>Logs:</p>
+  <ul>
+    <li
+      *ngFor="let log of clickLogs; let i = index"
+      [ngStyle]="{ background: getBackground(i) }"
+      [ngClass]="getClass(i)"
+    >
+      {{ i + 1 }}. {{ log }}
+    </li>
+  </ul>
+  <!-- 5. Starting at the 5th log item, give all items a blue background with ngStyle and white color with ngClass -->
 </app-main-navigation>
 <div class="alerts">
   <app-success-alert>Successful execution</app-success-alert>
