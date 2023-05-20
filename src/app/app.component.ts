@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   condition = false;
+  value = 0;
 
   toggleCondition() {
     this.condition = !this.condition;
