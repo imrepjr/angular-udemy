@@ -1,12 +1,1 @@
-<div class="container">
-  <app-game-control
-    (onTick)="addNumber($event)"
-    (onStart)="resetNumbers()"
-  ></app-game-control>
-  <div class="numbers">
-    <ng-template ngFor let-number [ngForOf]="numbers">
-      <app-even *ngIf="number % 2 === 0">{{ number }}</app-even>
-      <app-odd *ngIf="number % 2 !== 0">{{ number }}</app-odd>
-    </ng-template>
-  </div>
-</div>
+<div class="container"></div>
