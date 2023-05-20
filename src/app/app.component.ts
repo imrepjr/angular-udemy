@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ServerElement } from './models/ServerElement';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +6,14 @@ import { ServerElement } from './models/ServerElement';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  serverElements: ServerElement[] = [];
+  numbers: number[] = [];
 
-  addServerElement(newServerElement: ServerElement) {
-    console.log({ newServerElement, serverElements: this.serverElements });
-    this.serverElements.push(newServerElement);
+  addNumber(number: number) {
+    console.log('number added:', number);
+    this.numbers.push(number);
+  }
+
+  resetNumbers() {
+    this.numbers = [];
   }
 }

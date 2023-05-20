@@ -1,12 +1,12 @@
 <div class="container">
-  <app-cockpit (onAddServerElement)="addServerElement($event)"></app-cockpit>
-  <hr />
-  <div class="row">
-    <div class="col-xs-12">
-      <app-server-element
-        *ngFor="let element of serverElements"
-        [serverElement]="element"
-      ></app-server-element>
-    </div>
+  <app-game-control
+    (onTick)="addNumber($event)"
+    (onStart)="resetNumbers()"
+  ></app-game-control>
+  <div class="numbers">
+    <ng-template ngFor let-number [ngForOf]="numbers">
+      <app-even *ngIf="number % 2 === 0">{{ number }}</app-even>
+      <app-odd *ngIf="number % 2 !== 0">{{ number }}</app-odd>
+    </ng-template>
   </div>
 </div>
