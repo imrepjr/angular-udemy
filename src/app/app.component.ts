@@ -6,14 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  numbers: number[] = [];
+  condition = false;
+  value = 0;
 
-  addNumber(number: number) {
-    console.log('number added:', number);
-    this.numbers.push(number);
-  }
-
-  resetNumbers() {
-    this.numbers = [];
+  toggleCondition() {
+    this.condition = !this.condition;
   }
 }

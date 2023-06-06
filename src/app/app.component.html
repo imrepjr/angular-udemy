@@ -1,12 +1,19 @@
 <div class="container">
-  <app-game-control
-    (onTick)="addNumber($event)"
-    (onStart)="resetNumbers()"
-  ></app-game-control>
-  <div class="numbers">
-    <ng-template ngFor let-number [ngForOf]="numbers">
-      <app-even *ngIf="number % 2 === 0">{{ number }}</app-even>
-      <app-odd *ngIf="number % 2 !== 0">{{ number }}</app-odd>
-    </ng-template>
+  <p appHighlight>Style me with custom directive</p>
+  <p appBetterHighlight defaultColor="gray" highlightColor="yellow">
+    Style me with custom directive
+  </p>
+  <p *appUnless="condition">This paragraph has a custom structural directive</p>
+  <button class="btn btn-primary" (click)="toggleCondition()">
+    Toggle condition
+  </button>
+
+  <div [ngSwitch]="value">
+    <p *ngSwitchCase="5">value is 5</p>
+    <p *ngSwitchCase="25">value is 25</p>
+    <p *ngSwitchCase="100">value is 100</p>
+    <p *ngSwitchDefault>value is default</p>
   </div>
+
+  <input type="text" [(ngModel)]="value" />
 </div>
