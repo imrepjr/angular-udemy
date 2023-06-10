@@ -5,11 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  condition = false;
-  value = 0;
-
-  toggleCondition() {
-    this.condition = !this.condition;
-  }
-}
+export class AppComponent {}
